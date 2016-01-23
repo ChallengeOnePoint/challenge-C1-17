@@ -3,9 +3,12 @@
     var chached = [];
     var isCacheOutDated = true;
 
-    function reorder() {
+    function reorder(col) {
+        var column = col === undefined 
+            ? "number"
+            : col;
         chached.sort(function (a, b) {
-            return a["number"] - b["number"];
+            return a[column] - b[column];
         });        
     }
 
