@@ -2,37 +2,65 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>book-adresse</title>
+	<title>book-address</title>
 	<!-- <link rel="stylesheet" type="text/css" href="css\bootstrap.css"> -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-    <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
-		<script>
-		function initialize() {
-
-			var mapProp = {
-				center:new google.maps.LatLng(48.859733, 2.341947),
-				zoom:12,
-				mapTypeId:google.maps.MapTypeId.ROADMAP,
-				scrollwheel: false
-			};
-			var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
-		}
-		</script>
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body onload="initialize()">
-	<div id="googleMap"></div>
-	<div class="bandeau2">
-		<address>
-			<strong>Twitter, Inc.</strong><br>
-			1355 Market Street, Suite 900<br>
-			San Francisco, CA 94103<br>
-			<abbr title="Phone">P:</abbr> (123) 456-7890
-		</address>
-	</div>
-	<div class="contents">
-	<i class="glyphicon glyphicon-map-marker"></i>
-	</div>
+    <div class="list">
+        
+    </div>
+    <div class="card">
+    	<div id="googleMap"></div>
+    	<div class="bandeau2">
+            <h2><span class="field-firstname">Twitter</span> <span class="field-lastname">Inc</span></h2>
+            <div class="buttons">
+            <button class="edit">Edit</button>
+            </div>
+    	</div>
+    	<div class="contents">
+            <address>
+                <span class="field-street">1355 Market Street, Suite 900</span><br>
+                <span class="field-city">San Francisco</span>, <span class="field-postcode">CA 94103</span><br>
+            </address>
+    	</div>
+    </div>
+    <div class="cardForm">
+        <div id="googleMap"></div>
+        <div class="bandeau2">
+            <h2><input type="text" placeholder="prenom" class="field" id="field-firstname">
+            <input type="text" placeholder="nom de famille" class="field" id="field-laststname"></h2>
+            <div class="buttons">
+                <button class="edit">Cancel</button>
+                <button class="edit">Save</button>
+            </div>
+        </div>
+        <div class="contents">
+            <address>
+                <input type="text" class="field" placeholder="adresse" id="field-address"><br/>
+                <input type="text" class="field" placeholder="ville" id="field-city"><br/>
+                <input type="text" class="field" placeholder="code postal" id="field-postcode"><br/>
+            </address>
+        </div>
+    </div>
+    
+    <script src="js/fakeDB.js"></script>
+    <script src="js/users.js"></script>
+    <script src="js/card.js"></script>
+    <script>
+    function initialize() {
+
+        // var mapProp = {
+        //     center:new google.maps.LatLng(48.859733, 2.341947),
+        //     zoom:12,
+        //     mapTypeId:google.maps.MapTypeId.ROADMAP,
+        //     scrollwheel: false
+        // };
+        // var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+    }
+    </script>    
 </body>
 </html>
