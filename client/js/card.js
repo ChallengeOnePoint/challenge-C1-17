@@ -2,15 +2,21 @@
 
     var instance = {};
     var hasInit = false;
+    var card, form, map;
 
     global.card = {
         setData: function (data) {
             instance = data;
+            this.render();
         },
         render: function () {
             for(var p in instance) {
-                document.querySelector('.field-' + p).innerHTML = instance[p];
+                if (document.querySelector('.field-' + p)) {
+                    document.querySelector('.field-' + p).innerHTML = instance[p];        
+                }
             }
+
+            // map.center(instance['lat'], instance['lng']);
         },
         
         renderForm: function () {
@@ -22,15 +28,15 @@
         switchToEditMode: function () {
             this.renderForm();
             
-            this.card.style.display = 'none';
-            this.form.style.display = 'block';
+            card.style.display = 'none';
+            form.style.display = 'block';
         },
 
         switchToDisplayMode: function () {
             this.render();
 
-            this.card.style.display = 'block';
-            this.form.style.display = 'none';
+            card.style.display = 'block';
+            form.style.display = 'none';
         },        
 
         init: function () {
@@ -38,14 +44,15 @@
                 return;
             }
 
-
-            this.form = document.querySelector('.cardForm');
-            this.card = document.querySelector('.card');
+            form = document.querySelector('.cardForm');
+            card = document.querySelector('.card');
 
             var self = this;
 
             function clickCallback (e) {
-                if (e.target.classList.contains('edit')) {
+                if (e.target.classList.contains('back')) {
+                    self.gotoList();
+                } else if (e.target.classList.contains('edit')) {
                     this.switchToEditMode();
                 } else {
                     if (e.target.classList.contains('save')) {
@@ -66,8 +73,29 @@
                 });
             });
 
+        var mapProp = {
+            center:new google.maps.LatLng(48.859733, 2.341947),
+            zoom:12,
+            mapTypeId:google.maps.MapTypeId.ROADMAP,
+            scrollwheel: false
+        };
+        map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+
             hasInit = true;
+        },
+
+        hide: function () {
+            card.style.display = 'none';
+        },
+        show: function () {
+            card.style.display = "block";
+        },
+        gotoList: function () {
+            this.hide();
+            list.show();
         }
+
     };
 
 }(this));

@@ -23,6 +23,9 @@
         },
         findBy: function (col, val) {
             var i = 0, found = false;
+
+            this.all();
+
             var baseArray = chached;
             //val = parseInt(val, 10);
             reorder(col);
