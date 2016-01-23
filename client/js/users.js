@@ -18,22 +18,22 @@
                 // todo api call
                 chached = dataSrc;
                 isCacheOutDated = false;
-                reorder();
             }
             return chached;
         },
-        findById: function (id) {
+        findBy: function (col, val) {
             var i = 0, found = false;
             var baseArray = chached;
-            id = id.toString();
+            //val = parseInt(val, 10);
+            reorder(col);
             while (found === false) {
-                if (baseArray.length === 1 && id.toString() !== baseArray[0]["number"]) {
+                if (baseArray.length === 1 && val !== baseArray[0][col]) {
                     break;
                 }
                 i = Math.floor(baseArray.length / 2);
-                if (id.toString() === baseArray[i]["number"]) {
+                if (val === baseArray[i][col]) {
                     found = true;
-                } else if (id > baseArray[i]["number"]) {
+                } else if (val > baseArray[i][col]) {
                     baseArray = baseArray.slice(i);
                 } else {
                     baseArray = baseArray.slice(0, i);
