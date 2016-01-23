@@ -1,8 +1,0 @@
-{
-  "name": "onepointjs_address_book_front",
-  "version": "0.0.1",
-  "dependencies": {
-    "jquery": "^2.2.0",
-    "lodash": "^4.0.0"
-  }
-}
