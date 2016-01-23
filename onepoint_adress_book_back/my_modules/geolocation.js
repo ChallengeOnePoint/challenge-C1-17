@@ -5,7 +5,7 @@
 		var address = encodeURI(userInfos.street + " " + userInfos.city + " " + userInfos.postcode);
 		var options = {
 			    host: 'maps.google.com',
-			    path: '/maps/api/geocode/json?address=' + address,
+			    path: '/maps/api/geocode/json?key=AIzaSyB7dJ5WBzcvAeulxFnmD161qTOhNVaYbZ8&address=' + address,
 			    port: 443,
 			    method: 'GET',
 			    headers: {
@@ -16,7 +16,7 @@
 		    var prot = options.port == 443 ? https : http;
 		    var req = prot.request(options, function(res){
 		        var output = '';
-				var coord = {};
+				var coord = false;
 		        res.setEncoding('utf8');
 
 		        res.on('data', function (chunk) {
@@ -25,15 +25,12 @@
 
 		        res.on('end', function() {
 		            var obj = JSON.parse(output);
-		            coord = obj.results[0].geometry.location;
+		            if (typeof obj.results[0] !== "undefined") {
+		            	coord = obj.results[0].geometry.location;
+		            }
 		            callback.call(this, coord, userInfos);
 		        });
-		    });/*
-
-		    req.on('error', function(err) {
-		        //res.send('error: ' + err.message);
-		    });*/
-
+		    });
 		    req.end();		    
 	};
 
