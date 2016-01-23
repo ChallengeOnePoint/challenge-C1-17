@@ -2,15 +2,27 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 var jsonfile = require('jsonfile');
+var request = require('request');
 
 router.get('/', function (req, res) {
     var allContacts = JSON.parse(fs.readFileSync(__dirname + '/../public/json/addressBook.json', 'utf8'));
     res.json({allContacts: allContacts});
 });
 
+<<<<<<< HEAD
 /*router.post('/import/json', function (req, res) {
     jsonfile.writeFile(__dirname + '/../public/json/addressBook.json', req.body., function (err) {
         console.error(err);
+=======
+router.post('/import/json', function (req, res) {
+    request(req.body.jsonFile, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            jsonfile.writeFile(__dirname + '/../public/json/addressBook.json', JSON.parse(body), function (err) {
+                console.error(err);
+            });
+            
+        }
+>>>>>>> b79c12632ef5cc8b7ccef101b4d4da354ffde50b
     });
 });*/
 
