@@ -1,0 +1,63 @@
+{
+	"id": "07678cb5-f5cf-5fa7-0762-126dbade0475",
+	"name": "address_book",
+	"description": "",
+	"order": [
+		"af59f171-d4cb-33a6-cfdf-5a07d2321640",
+		"284d6b1f-8c68-e228-43d0-4198d1f81a9b"
+	],
+	"folders": [],
+	"timestamp": 1453550234227,
+	"owner": 0,
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "284d6b1f-8c68-e228-43d0-4198d1f81a9b",
+			"headers": "",
+			"url": "localhost:3000/geoloc/import/json",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "07678cb5-f5cf-5fa7-0762-126dbade0475",
+			"data": [
+				{
+					"key": "jsonFile",
+					"value": "http://cdn.bemyapp.com/files/2016/one-point/fixtures/challenge-full-stack/addressBook.json",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "localhost:3000/geoloc/import/json",
+			"description": "/geoloc/import/json POST\n\n{\n    \"jsonFile\": \"http://cdn.bemyapp.com/files/2016/one-point/fixtures/challenge-full-stack/addressBook.json\"\n}",
+			"descriptionFormat": "html",
+			"time": 1453552020119,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "af59f171-d4cb-33a6-cfdf-5a07d2321640",
+			"headers": "",
+			"url": "localhost:3000/geoloc",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "07678cb5-f5cf-5fa7-0762-126dbade0475",
+			"data": [],
+			"dataMode": "params",
+			"name": "localhost:3000/geoloc",
+			"description": "/geoloc GET",
+			"descriptionFormat": "html",
+			"time": 1453551920154,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

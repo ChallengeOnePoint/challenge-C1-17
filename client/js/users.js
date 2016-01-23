@@ -15,7 +15,7 @@
     users = {
         all: function () {
             if (isCacheOutDated) {
-                // todo api call
+                // todo api call // localhost:3000/geoloc/ GET api sent you : [{firstname: "...", lastname: "..."}];
                 chached = dataSrc;
                 isCacheOutDated = false;
             }
@@ -49,7 +49,7 @@
             }
         },
         save: function (data) {
-            // todo : api call
+            // todo : api call // not implemented at the moment localhost:3000/geoloc POST you send : {firstname: ..., lastname: ...}
             chached.push(data);
             reorder();
         }
